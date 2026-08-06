@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Bot, X, Send, Sparkles } from "lucide-react";
+import { Bot, X, Send, Sparkles, Minus, Maximize2, Minimize2, Move } from "lucide-react";
 
 interface Message {
   sender: "bot" | "user";
@@ -26,6 +26,8 @@ const sampleQuestions = [
 
 export default function AiAssistant() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
+  const [isMaximized, setIsMaximized] = useState(false);
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [inputValue, setInputValue] = useState("");
 
@@ -77,49 +79,107 @@ export default function AiAssistant() {
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          setIsOpen(!isOpen);
+          setIsMinimized(false);
+        }}
         className="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 px-4 py-3 rounded-full bg-gradient-to-r from-[#6C63FF] via-[#00E5FF] to-[#A855F7] text-black font-heading font-bold text-xs shadow-[0_0_25px_rgba(108,99,255,0.5)] hover:shadow-[0_0_35px_rgba(0,229,255,0.7)] transition-all duration-300"
       >
         <Bot className="w-5 h-5" />
         <span className="hidden sm:inline">AI Portfolio Assistant</span>
+        {isMinimized && (
+          <span className="h-2 w-2 rounded-full bg-black animate-ping" />
+        )}
       </motion.button>
 
-      {/* Chat Assistant Widget Window */}
+      {/* Draggable Desktop AI Assistant Window */}
       <AnimatePresence>
-        {isOpen && (
+        {isOpen && !isMinimized && (
           <motion.div
+            drag
+            dragMomentum={false}
+            dragElastic={0.05}
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              y: 0,
+            }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-22 right-6 z-50 w-full max-w-sm sm:max-w-md h-[520px] glass-card border border-white/20 shadow-2xl bg-[#050816] flex flex-col overflow-hidden rounded-3xl"
+            className={`fixed z-50 glass-card border border-white/20 shadow-2xl bg-[#050816] flex flex-col overflow-hidden transition-all duration-200 ${
+              isMaximized
+                ? "inset-4 sm:inset-10 w-auto h-auto rounded-3xl"
+                : "bottom-20 right-4 sm:right-6 w-[94vw] sm:w-[440px] h-[540px] max-h-[80vh] rounded-3xl"
+            }`}
           >
-            {/* Widget Header */}
-            <div className="p-4 bg-white/[0.04] border-b border-white/10 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-[#00E5FF]/15 text-[#00E5FF]">
-                  <Bot className="w-5 h-5" />
+            {/* Draggable Desktop Title Bar Header */}
+            <div className="p-3.5 bg-white/[0.05] border-b border-white/10 flex items-center justify-between cursor-grab active:cursor-grabbing select-none">
+              <div className="flex items-center gap-2.5">
+                <div className="flex items-center gap-1.5 mr-2">
+                  <span
+                    onClick={() => setIsOpen(false)}
+                    className="h-3 w-3 rounded-full bg-red-500/80 hover:bg-red-500 cursor-pointer block"
+                    title="Close"
+                  />
+                  <span
+                    onClick={() => setIsMinimized(true)}
+                    className="h-3 w-3 rounded-full bg-yellow-500/80 hover:bg-yellow-500 cursor-pointer block"
+                    title="Minimize"
+                  />
+                  <span
+                    onClick={() => setIsMaximized(!isMaximized)}
+                    className="h-3 w-3 rounded-full bg-green-500/80 hover:bg-green-500 cursor-pointer block"
+                    title="Maximize"
+                  />
                 </div>
+
+                <div className="p-1.5 rounded-lg bg-[#00E5FF]/15 text-[#00E5FF]">
+                  <Bot className="w-4 h-4" />
+                </div>
+
                 <div>
-                  <h4 className="font-heading text-sm font-bold text-white flex items-center gap-1.5">
+                  <h4 className="font-heading text-xs font-bold text-white flex items-center gap-1.5">
                     Praneel&apos;s AI Assistant
-                    <Sparkles className="w-3.5 h-3.5 text-[#A855F7]" />
+                    <Sparkles className="w-3 h-3 text-[#A855F7]" />
                   </h4>
-                  <span className="text-[10px] font-mono text-[#00E5FF] flex items-center gap-1">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#00E5FF] animate-pulse" /> Online &amp; Ready
+                  <span className="text-[9px] font-mono text-[#00E5FF] flex items-center gap-1">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#00E5FF] animate-pulse" /> Movable Desktop App
                   </span>
                 </div>
               </div>
 
-              <button
-                onClick={() => setIsOpen(false)}
-                className="p-1.5 rounded-full bg-white/5 hover:bg-white/15 text-white transition-colors"
-              >
-                <X className="w-4 h-4" />
-              </button>
+              {/* Controls */}
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={() => setIsMinimized(true)}
+                  className="p-1 rounded-md hover:bg-white/10 text-white/70 hover:text-white"
+                  title="Minimize"
+                >
+                  <Minus className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  onClick={() => setIsMaximized(!isMaximized)}
+                  className="p-1 rounded-md hover:bg-white/10 text-white/70 hover:text-white hidden sm:block"
+                  title={isMaximized ? "Restore" : "Maximize"}
+                >
+                  {isMaximized ? (
+                    <Minimize2 className="w-3.5 h-3.5" />
+                  ) : (
+                    <Maximize2 className="w-3.5 h-3.5" />
+                  )}
+                </button>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="p-1 rounded-md hover:bg-white/10 text-white/70 hover:text-white"
+                  title="Close"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              </div>
             </div>
 
-            {/* Chat Log */}
+            {/* Chat Messages */}
             <div className="flex-1 overflow-y-auto p-4 space-y-3 font-body text-xs leading-relaxed">
               {messages.map((msg, idx) => (
                 <div
@@ -129,7 +189,7 @@ export default function AiAssistant() {
                   <div
                     className={`max-w-[85%] p-3 rounded-2xl ${
                       msg.sender === "user"
-                        ? "bg-gradient-to-r from-[#6C63FF] to-[#00E5FF] text-black font-medium rounded-br-none"
+                        ? "bg-gradient-to-r from-[#6C63FF] to-[#00E5FF] text-black font-medium rounded-br-none shadow-md"
                         : "bg-white/[0.05] border border-white/10 text-white rounded-bl-none whitespace-pre-line"
                     }`}
                   >
@@ -139,7 +199,7 @@ export default function AiAssistant() {
               ))}
             </div>
 
-            {/* Question Chips */}
+            {/* Sample Question Chips */}
             <div className="px-3 py-2 bg-white/[0.02] border-t border-white/5 flex gap-1.5 overflow-x-auto no-scrollbar">
               {sampleQuestions.map((q) => (
                 <button
@@ -152,7 +212,7 @@ export default function AiAssistant() {
               ))}
             </div>
 
-            {/* Input Box */}
+            {/* Input Footer */}
             <div className="p-3 bg-[#050816] border-t border-white/10 flex items-center gap-2">
               <input
                 type="text"

@@ -95,7 +95,7 @@ export default function SkillsBento() {
             transition={{ delay: 0.1 }}
             className="font-heading text-3xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight"
           >
-            Interactive <span className="text-gradient-purple">Bento Grid</span> Stack.
+            Tools &amp; <span className="text-gradient-purple">Technologies</span>.
           </motion.h2>
         </div>
 

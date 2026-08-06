@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Sparkles, CheckCircle2, ArrowRight } from "lucide-react";
+import { ExternalLink, Github, CheckCircle2, ArrowRight } from "lucide-react";
 
 interface Project {
   id: string;
@@ -126,11 +126,11 @@ export default function Projects() {
             transition={{ delay: 0.1 }}
             className="font-heading text-3xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight"
           >
-            Handcrafted <span className="text-gradient-cyan">Digital Products</span>.
+            Featured <span className="text-gradient-cyan">Projects</span>.
           </motion.h2>
         </div>
 
-        {/* Apple Showcase Project Stack */}
+        {/* Project Stack */}
         <div className="space-y-20">
           {projects.map((project, index) => {
             const isEven = index % 2 === 0;
@@ -221,7 +221,7 @@ export default function Projects() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group/btn inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#6C63FF] via-[#00E5FF] to-[#A855F7] text-black font-heading font-bold text-xs shadow-[0_0_20px_rgba(108,99,255,0.4)] hover:shadow-[0_0_35px_rgba(0,229,255,0.7)] hover:scale-105 transition-all duration-300"
+                        className="group/btn inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#6C63FF] via-[#00E5FF] to-[#A855F7] text-black font-heading font-bold text-xs shadow-[0_0_20px_rgba(108,99,255,0.4)] hover:shadow-[0_0_35px_rgba(0,229,255,0.7)] hover:scale-105 transition-all duration-300 cursor-pointer"
                       >
                         <span>Live Preview</span>
                         <ExternalLink className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
@@ -231,7 +231,7 @@ export default function Projects() {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] border border-white/12 text-white font-heading font-semibold text-xs hover:border-[#6C63FF]/40 transition-all duration-300"
+                        className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] border border-white/12 text-white font-heading font-semibold text-xs hover:border-[#6C63FF]/40 transition-all duration-300 cursor-pointer"
                       >
                         <Github className="w-4 h-4 text-[#00E5FF]" />
                         <span>Source Code</span>
@@ -262,7 +262,7 @@ export default function Projects() {
                         
                         <div className="absolute h-48 w-48 rounded-full bg-[#00E5FF]/10 blur-3xl group-hover/screen:bg-[#00E5FF]/25 transition-all duration-500" />
 
-                        <Sparkles className="w-10 h-10 text-[#00E5FF] mb-3 group-hover/screen:rotate-12 transition-transform duration-300" />
+                        <ExternalLink className="w-10 h-10 text-[#00E5FF] mb-3 group-hover/screen:rotate-12 transition-transform duration-300" />
 
                         <h4 className="font-heading text-2xl font-bold text-white mb-1">
                           {project.title}
@@ -276,7 +276,7 @@ export default function Projects() {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-[#00E5FF] text-white hover:text-black font-mono text-xs font-bold transition-all"
+                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#6C63FF] to-[#00E5FF] text-black font-heading text-xs font-bold hover:scale-105 transition-all duration-200 cursor-pointer shadow-lg"
                         >
                           Launch Demo <ArrowRight className="w-3.5 h-3.5" />
                         </a>
