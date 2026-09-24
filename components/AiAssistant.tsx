@@ -39,7 +39,7 @@ export default function AiAssistant() {
     }
 
     if (q.includes("skill") || q.includes("tech") || q.includes("stack") || q.includes("language")) {
-      return "Praneel's technical stack includes:\n• Programming: Java, Python, TypeScript, JavaScript, C++, C\n• Frontend: React, Next.js 15, Tailwind CSS, Framer Motion, Bootstrap\n• Backend: Flask, REST APIs\n• Database: SQLite\n• Tools: Git, GitHub, Docker, Render, Vercel\n• AI Workflows: Google Antigravity, Claude, ChatGPT, Cursor, Gemini, Codex, Lovable.";
+      return "Praneel's skills & building stack include:\n• Core Skills: Java and oop, Python (Basics), C, DSA, MySQL, DBMS\n• Backend Development: Spring, Spring Boot, REST APIs, JWT Authentication\n• AI & Integration: Spring AI, AI Integration, LLM APIs, AI-powered Applications\n• Cloud & DevOps: Docker, AWS, Git, GitHub, CI/CD, Deployment\n• Frontend Development: HTML, CSS, JavaScript, React";
     }
 
     if (q.includes("education") || q.includes("cgpa") || q.includes("college") || q.includes("university") || q.includes("degree") || q.includes("study")) {

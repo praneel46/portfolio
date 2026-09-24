@@ -9,7 +9,6 @@ interface HeroProps {
 }
 
 const titles = [
-  "AI Full Stack Developer",
   "Software Developer",
   "Tech Enthusiast",
   "Problem Solver",
