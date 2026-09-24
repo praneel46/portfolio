@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Layout, Server, Database, Wrench, Bot, Sparkles, Cpu } from "lucide-react";
+import { Brain, Server, Sparkles, Cloud, Monitor, Cpu } from "lucide-react";
 
 interface SkillCategory {
   title: string;
@@ -16,59 +16,50 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
-    title: "AI Workflow & Productivity Engine",
-    subtitle: "Next-Gen AI Agentic Capabilities",
-    icon: Bot,
-    skills: ["Google Antigravity", "Claude", "ChatGPT", "Cursor", "Gemini", "Codex", "Lovable"],
+    title: "Core Skills",
+    subtitle: "Programming, problem solving & fundamentals",
+    icon: Brain,
+    skills: ["Java and oop", "Python (Basics)", "C", "DSA", "MySQL", "DBMS"],
+    color: "from-[#6C63FF]/20 via-[#A855F7]/20 to-transparent",
+    accent: "text-[#6C63FF] border-[#6C63FF]/30 bg-[#6C63FF]/10",
+    colSpan: "lg:col-span-7",
+  },
+  {
+    title: "Backend Development",
+    subtitle: "Building APIs & backend applications",
+    icon: Server,
+    skills: ["Spring", "Spring Boot", "REST APIs", "JWT Authentication", "Backend Development"],
+    color: "from-[#00E5FF]/20 via-[#6C63FF]/20 to-transparent",
+    accent: "text-[#00E5FF] border-[#00E5FF]/30 bg-[#00E5FF]/10",
+    colSpan: "lg:col-span-5",
+  },
+  {
+    title: "AI & Integration",
+    subtitle: "Exploring intelligent applications",
+    icon: Sparkles,
+    skills: ["Spring AI", "AI Integration", "LLM APIs", "AI-powered Applications"],
     color: "from-[#A855F7]/30 via-[#6C63FF]/30 to-[#00E5FF]/20",
     accent: "text-[#A855F7] border-[#A855F7]/40 bg-[#A855F7]/15",
-    colSpan: "lg:col-span-8",
+    colSpan: "lg:col-span-5",
     isAiCategory: true,
   },
   {
-    title: "Programming Languages",
-    subtitle: "Algorithmic & Core Fundamentals",
-    icon: Code2,
-    skills: ["Java", "Python", "TypeScript", "JavaScript", "C++", "C"],
-    color: "from-[#6C63FF]/20 via-[#00E5FF]/20 to-transparent",
-    accent: "text-[#6C63FF] border-[#6C63FF]/30 bg-[#6C63FF]/10",
-    colSpan: "lg:col-span-4",
-  },
-  {
-    title: "Frontend Engineering",
-    subtitle: "Modern Reactive UI & Motion",
-    icon: Layout,
-    skills: ["React", "Next.js 15", "Tailwind CSS", "Framer Motion", "Bootstrap"],
-    color: "from-[#00E5FF]/20 via-[#6C63FF]/20 to-transparent",
-    accent: "text-[#00E5FF] border-[#00E5FF]/30 bg-[#00E5FF]/10",
-    colSpan: "lg:col-span-6",
-  },
-  {
-    title: "Backend & Systems Architecture",
-    subtitle: "Scalable APIs & Microservices",
-    icon: Server,
-    skills: ["Flask", "REST APIs", "Python Systems"],
-    color: "from-[#6C63FF]/20 via-[#A855F7]/20 to-transparent",
-    accent: "text-[#6C63FF] border-[#6C63FF]/30 bg-[#6C63FF]/10",
-    colSpan: "lg:col-span-6",
-  },
-  {
-    title: "Databases & Storage",
-    subtitle: "Data Persistence",
-    icon: Database,
-    skills: ["SQLite"],
-    color: "from-[#A855F7]/20 via-[#00E5FF]/20 to-transparent",
-    accent: "text-[#A855F7] border-[#A855F7]/30 bg-[#A855F7]/10",
-    colSpan: "lg:col-span-4",
-  },
-  {
-    title: "Developer Tools & Cloud Infrastructure",
-    subtitle: "CI/CD, Deployment & Containers",
-    icon: Wrench,
-    skills: ["Git", "GitHub", "Docker", "Render", "Vercel"],
+    title: "Cloud & DevOps",
+    subtitle: "Deployment, containers & developer tools",
+    icon: Cloud,
+    skills: ["Docker", "AWS", "Git", "GitHub", "CI/CD", "Deployment"],
     color: "from-[#00E5FF]/20 via-[#A855F7]/20 to-transparent",
     accent: "text-[#00E5FF] border-[#00E5FF]/30 bg-[#00E5FF]/10",
-    colSpan: "lg:col-span-8",
+    colSpan: "lg:col-span-7",
+  },
+  {
+    title: "Frontend Development",
+    subtitle: "Building modern web interfaces",
+    icon: Monitor,
+    skills: ["HTML", "CSS", "JavaScript", "React"],
+    color: "from-[#6C63FF]/20 via-[#00E5FF]/20 to-transparent",
+    accent: "text-[#6C63FF] border-[#6C63FF]/30 bg-[#6C63FF]/10",
+    colSpan: "lg:col-span-12",
   },
 ];
 
@@ -85,7 +76,7 @@ export default function SkillsBento() {
             viewport={{ once: true }}
             className="font-mono text-xs text-[#A855F7] uppercase tracking-widest bg-[#A855F7]/10 px-3.5 py-1.5 rounded-full border border-[#A855F7]/30 mb-4"
           >
-            02 // TECHNICAL EXPERTISE
+            02 // CURRENTLY BUILDING WITH
           </motion.span>
 
           <motion.h2
@@ -95,11 +86,21 @@ export default function SkillsBento() {
             transition={{ delay: 0.1 }}
             className="font-heading text-3xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight"
           >
-            Tools &amp; <span className="text-gradient-purple">Technologies</span>.
+            Currently <span className="text-gradient-purple">Building With</span>.
           </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15 }}
+            className="text-slate-400 text-xs sm:text-sm max-w-2xl mt-3 font-mono"
+          >
+            Technologies, frameworks, and core concepts I am actively learning, practicing, and applying in software projects.
+          </motion.p>
         </div>
 
-        {/* Bento Grid Layout */}
+        {/* Bento Grid Layout (5 Cards) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {skillCategories.map((cat, index) => {
             const IconComponent = cat.icon;
@@ -130,11 +131,6 @@ export default function SkillsBento() {
                     <div>
                       <h3 className="font-heading text-xl font-bold text-white flex items-center gap-2">
                         {cat.title}
-                        {cat.isAiCategory && (
-                          <span className="font-mono text-[10px] font-extrabold text-black bg-gradient-to-r from-[#A855F7] to-[#00E5FF] px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1">
-                            <Sparkles className="w-3 h-3 fill-black" /> AI CORE
-                          </span>
-                        )}
                       </h3>
                       <p className="text-xs text-[#94A3B8] font-mono">
                         {cat.subtitle}
@@ -146,24 +142,19 @@ export default function SkillsBento() {
                 </div>
 
                 <div className="flex flex-wrap gap-2.5 relative z-10 pt-2">
-                  {cat.skills.map((skill) => {
-                    const isAntigravity = skill === "Google Antigravity";
-                    return (
-                      <motion.span
-                        key={skill}
-                        whileHover={{ scale: 1.08, y: -2 }}
-                        className={`px-4 py-2 rounded-xl text-xs font-mono font-medium backdrop-blur-md transition-all duration-200 cursor-default border ${
-                          isAntigravity
-                            ? "bg-gradient-to-r from-[#6C63FF] via-[#00E5FF] to-[#A855F7] text-black font-extrabold border-transparent shadow-[0_0_20px_rgba(0,229,255,0.5)]"
-                            : cat.isAiCategory
-                            ? "bg-[#A855F7]/10 text-white border-[#A855F7]/30 hover:bg-[#A855F7]/25 hover:border-[#A855F7]/60"
-                            : "bg-white/[0.04] text-[#E2E8F0] border-white/10 hover:bg-white/[0.08] hover:border-white/30 hover:text-white"
-                        }`}
-                      >
-                        {skill}
-                      </motion.span>
-                    );
-                  })}
+                  {cat.skills.map((skill) => (
+                    <motion.span
+                      key={skill}
+                      whileHover={{ scale: 1.06, y: -2 }}
+                      className={`px-4 py-2 rounded-xl text-xs font-mono font-medium backdrop-blur-md transition-all duration-200 cursor-default border ${
+                        cat.isAiCategory
+                          ? "bg-[#A855F7]/10 text-white border-[#A855F7]/30 hover:bg-[#A855F7]/25 hover:border-[#A855F7]/60"
+                          : "bg-white/[0.04] text-[#E2E8F0] border-white/10 hover:bg-white/[0.08] hover:border-white/30 hover:text-white"
+                      }`}
+                    >
+                      {skill}
+                    </motion.span>
+                  ))}
                 </div>
 
               </motion.div>
