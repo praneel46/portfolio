@@ -58,28 +58,28 @@ export default function ResumeSection({ onOpenResumeModal }: ResumeSectionProps)
                     <Sparkles className="w-4 h-4 text-[#A855F7]" />
                   </h3>
                   <p className="text-xs font-mono text-[#94A3B8]">
-                    Full Stack &amp; AI Web Developer • Computer Science Undergrad
+                    Software Developer • Backend &amp; CS Fundamentals
                   </p>
                 </div>
               </div>
 
               <p className="text-base text-[#94A3B8] font-light leading-relaxed">
-                Comprehensive summary of software development capabilities, AI project architectural highlights, 9.33 CGPA academic record at SJBIT, and verified certifications.
+                Software Developer with a backend focus in Java, Spring Boot, REST APIs, and DSA. Highlights work experience at InAmigos, featured projects (SmartHostelAI &amp; Furnivo), and a 9.33 CGPA at SJBIT.
               </p>
 
               {/* Highlights Chips */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
                 <div className="flex items-center gap-3 text-xs font-mono text-[#E2E8F0] bg-white/[0.04] p-3.5 rounded-2xl border border-white/10">
                   <User className="w-4 h-4 text-[#00E5FF]" />
-                  <span>Full Stack Dev</span>
+                  <span>Backend Developer</span>
                 </div>
                 <div className="flex items-center gap-3 text-xs font-mono text-[#E2E8F0] bg-white/[0.04] p-3.5 rounded-2xl border border-white/10">
                   <GraduationCap className="w-4 h-4 text-[#A855F7]" />
-                  <span>SJBIT B.E. CS &apos;28</span>
+                  <span>SJBIT B.E. IS &apos;28</span>
                 </div>
                 <div className="flex items-center gap-3 text-xs font-mono text-[#E2E8F0] bg-white/[0.04] p-3.5 rounded-2xl border border-white/10">
                   <Briefcase className="w-4 h-4 text-[#6C63FF]" />
-                  <span>AI Applications</span>
+                  <span>Spring Boot &amp; Java</span>
                 </div>
               </div>
             </div>
